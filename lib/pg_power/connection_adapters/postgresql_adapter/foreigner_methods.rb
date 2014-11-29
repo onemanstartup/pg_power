@@ -128,7 +128,7 @@ module PgPower # :nodoc:
       sql =
         "ADD CONSTRAINT #{quote_column_name(foreign_key_name)} " +
         "FOREIGN KEY (#{quote_column_name(column)}) " +
-        "REFERENCES #{quote_table_name(ActiveRecord::Migrator.proper_table_name(to_table))}(#{primary_key})"
+        "REFERENCES #{quote_table_name(self.proper_table_name(to_table))}(#{primary_key})"
       sql << " #{dependency}"      if dependency.present?
       sql << " #{options_options}" if options_options
 
